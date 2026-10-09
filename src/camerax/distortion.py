@@ -51,7 +51,6 @@ def get_pixel_to_pinhole(K, width, height, distortion_parameters, steps=5000):
     principal point, then linearly interpolated. Radii beyond this range
     are clamped to the last tabulated value, and the smallest real positive
     root is kept, which assumes a monotonic distortion over the image.
-    The polynomial is solved with `jax.numpy.roots`, which runs on CPU only.
     """
     scale = camera.get_scale(K, width, height)
     principal_point = camera.get_principal_point(K)
